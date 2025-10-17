@@ -1,0 +1,138 @@
+{
+  "chat.mcp.discovery.enabled": {
+    "claude-desktop": true,
+    "windsurf": true,
+    "cursor-global": true,
+    "cursor-workspace": true
+  },
+  "chat.mcp.serverSampling": {
+    "Global in Code: mcp-server-time": {
+      "allowedModels": [
+        "github.copilot-chat/claude-3.7-sonnet",
+        "github.copilot-chat/claude-3.7-sonnet-thought"
+      ]
+    }
+  },
+  "chat.mcp.access": "all",
+  "chat.tools.terminal.autoApprove": {
+    "npm install": true,
+    "rm": true
+  },
+  // Editor settings
+  "editor.accessibilitySupport": "off",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.rulers": [
+    80,
+    120
+  ],
+  "editor.renderWhitespace": "boundary",
+  "editor.linkedEditing": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.fontSize": 14,
+  "editor.minimap.enabled": false,
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.snippetSuggestions": "top",
+  // File settings
+  "files.autoSave": "afterDelay",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/node_modules": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true
+  },
+  // Search settings
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  // Terminal settings
+  "terminal.integrated.env.osx": {
+    "Q_NEW_SESSION": "1"
+  },
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.fontFamily": "MesloLGS NF, Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
+  // GitHub Copilot settings
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.scopeSelection": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.selectedCompletionModel": "Claude Sonnet 3.7",
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.notebook.followCellExecution.enabled": true,
+  // Python settings
+  "python.analysis.extraPaths": [
+    ".venv"
+  ],
+  "python.analysis.importFormat": "relative",
+  "python.analysis.typeCheckingMode": "standard",
+  "python.analysis.addHoverSummaries": true,
+  "python.analysis.autoFormatStrings": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.typeEvaluation.strictDictionaryInference": true,
+  "python.analysis.typeEvaluation.strictListInference": true,
+  "python.analysis.typeEvaluation.strictSetInference": true,
+  // JavaScript/TypeScript settings
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  // Git settings
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  // Jupyter and notebook settings
+  "jupyter.enableExtendedPythonKernelCompletions": true,
+  "jupyter.askForKernelRestart": false,
+  "notebook.formatOnSave.enabled": true,
+  "notebook.output.wordWrap": true,
+  // Window settings
+  "window.restoreWindows": "all",
+  "window.newWindowDimensions": "inherit",
+  "window.titleBarStyle": "custom",
+  // Workspace trust settings
+  "security.workspace.trust.untrustedFiles": "prompt",
+  "security.workspace.trust.enabled": true,
+  // Explorer settings
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  // Workbench settings
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Monokai",
+  // Makefile settings
+  "makefile.configureOnOpen": true,
+  // Language-specific settings
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
+}
