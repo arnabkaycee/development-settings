@@ -1,0 +1,67 @@
+#!/bin/bash
+# Script Name: setup-dev-env.sh
+# Description: Sets up a new development environment with common tools
+# Usage: ./setup-dev-env.sh
+
+set -e
+
+echo "🚀 Setting up development environment..."
+
+# Color codes for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+# Function to print colored messages
+print_success() {
+    echo -e "${GREEN}✓ $1${NC}"
+}
+
+print_error() {
+    echo -e "${RED}✗ $1${NC}"
+}
+
+print_info() {
+    echo -e "${YELLOW}ℹ $1${NC}"
+}
+
+# Check if running on macOS or Linux
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    OS="macos"
+    print_info "Detected macOS"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    OS="linux"
+    print_info "Detected Linux"
+else
+    print_error "Unsupported OS: $OSTYPE"
+    exit 1
+fi
+
+# Install Homebrew (macOS) or update package manager (Linux)
+if [[ "$OS" == "macos" ]]; then
+    if ! command -v brew &> /dev/null; then
+        print_info "Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        print_success "Homebrew installed"
+    else
+        print_success "Homebrew already installed"
+    fi
+elif [[ "$OS" == "linux" ]]; then
+    print_info "Updating package manager..."
+    sudo apt-get update -y
+    print_success "Package manager updated"
+fi
+
+# TODO: Add more setup steps here
+# - Install git
+# - Install programming languages
+# - Install editors
+# - Link configuration files
+
+print_success "Development environment setup complete!"
+echo ""
+echo "Next steps:"
+echo "1. Review and customize configuration files"
+echo "2. Link configurations to your home directory"
+echo "3. Install language-specific tools"

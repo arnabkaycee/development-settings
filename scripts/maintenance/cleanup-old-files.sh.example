@@ -1,0 +1,55 @@
+#!/bin/bash
+# Script Name: cleanup-old-files.sh
+# Description: Clean up old log files and temporary files
+# Usage: ./cleanup-old-files.sh [days]
+
+set -e
+
+# Default: remove files older than 30 days
+DAYS_OLD=${1:-30}
+
+# Color codes
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo "🧹 Cleaning up files older than $DAYS_OLD days..."
+
+# Directories to clean
+LOG_DIRS=(
+    "$HOME/Library/Logs"
+    "$HOME/.npm/_logs"
+    "/tmp"
+)
+
+# File patterns to clean
+PATTERNS=(
+    "*.log"
+    "*.tmp"
+    "*.temp"
+    "*.bak"
+)
+
+# Function to clean directory
+clean_directory() {
+    local dir="$1"
+    if [[ ! -d "$dir" ]]; then
+        return
+    fi
+    
+    echo -e "${YELLOW}Checking: $dir${NC}"
+    
+    for pattern in "${PATTERNS[@]}"; do
+        find "$dir" -name "$pattern" -type f -mtime +$DAYS_OLD -print0 2>/dev/null | while IFS= read -r -d '' file; do
+            echo "  Removing: $file"
+            rm -f "$file"
+        done
+    done
+}
+
+# Clean each directory
+for dir in "${LOG_DIRS[@]}"; do
+    clean_directory "$dir"
+done
+
+echo -e "${GREEN}✓ Cleanup complete!${NC}"
