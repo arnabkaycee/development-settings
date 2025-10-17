@@ -7,9 +7,11 @@ Get up and running with your development settings in minutes!
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/arnabkaycee/development-settings.git
+git clone https://github.com/YOUR_USERNAME/development-settings.git
 cd development-settings
 ```
+
+> **Note**: Replace `YOUR_USERNAME` with your GitHub username
 
 ### 2. Review the Structure
 

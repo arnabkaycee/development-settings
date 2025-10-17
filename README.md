@@ -34,9 +34,11 @@ development-settings/
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/arnabkaycee/development-settings.git
+git clone https://github.com/YOUR_USERNAME/development-settings.git
 cd development-settings
 ```
+
+> **Note**: Replace `YOUR_USERNAME` with your GitHub username
 
 2. Run the setup script (if available):
 ```bash
