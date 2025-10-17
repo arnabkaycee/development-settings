@@ -1,0 +1,37 @@
+#!/bin/bash
+# Script Name: quick-commit.sh
+# Description: Quickly add, commit, and push changes
+# Usage: ./quick-commit.sh "commit message"
+
+set -e
+
+if [ -z "$1" ]; then
+    echo "Error: Commit message required"
+    echo "Usage: $0 \"commit message\""
+    exit 1
+fi
+
+COMMIT_MSG="$1"
+
+echo "📝 Quick commit..."
+echo ""
+
+# Show status
+echo "Current status:"
+git status -s
+echo ""
+
+# Add all changes
+echo "Adding all changes..."
+git add .
+
+# Commit
+echo "Committing: $COMMIT_MSG"
+git commit -m "$COMMIT_MSG"
+
+# Push
+echo "Pushing to remote..."
+git push
+
+echo ""
+echo "✓ Done!"

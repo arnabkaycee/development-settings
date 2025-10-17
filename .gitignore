@@ -1,0 +1,43 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor specific
+*.swp
+*.swo
+*~
+.vscode/
+!ide-settings/vscode/
+.idea/
+!ide-settings/intellij/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+
+# Sensitive information
+*secret*
+*password*
+*token*
+*key*
+.env
+.env.*
+!.env.example
+
+# Local configurations
+local/
+*.local
+config.local.*
+
+# System files
+node_modules/
+.npm/
+.cache/

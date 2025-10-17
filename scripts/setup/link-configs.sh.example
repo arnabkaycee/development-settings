@@ -1,0 +1,62 @@
+#!/bin/bash
+# Script Name: link-configs.sh
+# Description: Creates symbolic links for configuration files
+# Usage: ./link-configs.sh
+
+set -e
+
+# Color codes
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+print_success() {
+    echo -e "${GREEN}✓ $1${NC}"
+}
+
+print_error() {
+    echo -e "${RED}✗ $1${NC}"
+}
+
+print_info() {
+    echo -e "${YELLOW}ℹ $1${NC}"
+}
+
+# Get the directory where this script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+REPO_ROOT="$( cd "$SCRIPT_DIR/../.." && pwd )"
+
+echo "🔗 Linking configuration files..."
+echo "Repository root: $REPO_ROOT"
+echo ""
+
+# Function to safely create symlink
+create_link() {
+    local source="$1"
+    local target="$2"
+    
+    if [[ -L "$target" ]]; then
+        print_info "Symlink already exists: $target"
+        return 0
+    elif [[ -f "$target" ]] || [[ -d "$target" ]]; then
+        print_info "File/directory exists: $target (backing up)"
+        mv "$target" "${target}.backup.$(date +%Y%m%d_%H%M%S)"
+    fi
+    
+    ln -s "$source" "$target"
+    print_success "Linked: $target -> $source"
+}
+
+# Example: Link git config (uncomment and modify as needed)
+# create_link "$REPO_ROOT/cli-tools/git/.gitconfig.example" "$HOME/.gitconfig"
+# create_link "$REPO_ROOT/cli-tools/git/.gitignore_global.example" "$HOME/.gitignore_global"
+
+# Example: Link bash config
+# create_link "$REPO_ROOT/cli-tools/bash/.bashrc.example" "$HOME/.bashrc"
+
+# Example: Link VSCode settings (macOS)
+# create_link "$REPO_ROOT/ide-settings/vscode/settings.json.example" "$HOME/Library/Application Support/Code/User/settings.json"
+
+print_info "Review the script and uncomment the links you want to create"
+print_success "Done!"
